@@ -30,13 +30,12 @@ export default {
                 isi: this.isi,
             });
             this.save();
-            // this.$route.path('/create');
-            // this.$route.redirect('/');
+            this.$redirect('/')
 
         },
         save(){
             localStorage.setItem('posts', JSON.stringify(this.posts))
-        }
+        },
     }
 }
 </script>
@@ -44,7 +43,9 @@ export default {
 <template>
 <Nav v-model="judul" @postMemo="add"/>
 <Aside :posts="posts"/>
+
 <router-view name="Post"></router-view>
+
 <router-view v-model="isi" name="Create"></router-view>
 
 </template>

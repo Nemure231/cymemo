@@ -4,13 +4,20 @@ export default {
         posts: {
             type: Array
         },
+    },
+    methods:{
+        goto(){
+            document.getElementById('hide-sidebar').classList.remove('w-full')
+            document.getElementById('hide-sidebar').classList.add('w-0')
+        },
     }
 }
 </script>
 
 <template>
   <aside class="relative w-full h-auto z-10">
-    <div class="fixed inset-y-0 overflow-y-auto h-full left-0 bg-cyan-900 lg:w-64 md:w-64 w-full">
+    <div id="hide-sidebar" class="w-full fixed inset-y-0 overflow-y-auto h-full left-0 bg-cyan-900 lg:w-64 md:w-64">
+    
     <div class="sticky space-x-2 text-2xl font-semibold text-center py-4 h-16 text-white top-0 backdrop-blur-sm bg-white/25">
         <router-link to="/">
             Cymemo
@@ -22,7 +29,7 @@ export default {
 
     <ul class="grid grid-cols-1 divide-y divide-gray-100/20 text-white font-medium text-lg"
     v-for="(post, index) in posts" :key="index">
-        <router-link class=" py-3 px-6 cursor-pointer hover:bg-cyan-800 truncate" :to="'/post/' + index ">{{post.isi}}</router-link>
+        <router-link @click="goto" class=" py-3 px-6 cursor-pointer hover:bg-cyan-800 truncate" :to="'/post/' + index ">{{post.isi}}</router-link>
     </ul>
     </div>
   </aside>

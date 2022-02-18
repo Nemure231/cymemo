@@ -14,17 +14,22 @@ export default {
             },
         },
     },
-    emits: ['postMemo'],
+    emits: ['postMemo', 'child-klik'],
     methods:{
         add(){
             this.$emit('postMemo');
-        }
+        },
+        onTekan(){
+            document.getElementById('hide-sidebar').classList.remove('w-0')
+            document.getElementById('hide-sidebar').classList.add('w-full')
+            this.$redirect('/')
+        },
     },
 }
 </script>
 <template>
-  <div class="flex justify-end bg-cyan-900 sticky top-0 ">
-    <div class="lg:block md:block hidden px-6 h-16 w-full ml-64">
+  <nav class="flex justify-end bg-cyan-900 sticky top-0 ">
+    <div class="lg:block md:block block px-6 h-16 w-full lg:ml-64 md:ml-64 ml-0">
         <div v-if="this.$route.path == '/create'" class="flex justify-between py-2.5">
             <input v-model="value" class="px-3 py-2 text-lg rounded-xl focus:outline-none" type="text" placeholder="Judul ...">
             
@@ -32,9 +37,11 @@ export default {
                 Simpan
             </button>
         </div>
-        <div v-else class="flex justify-between py-2.5">
-            
+        <div v-else class="flex justify-start py-2.5">
+            <button @click="onTekan()" class="lg:hidden md:hidden block px-6 py-2 text-lg font-semibold rounded-xl text-cyan-900 bg-white">
+                Kembali
+            </button>
         </div>
     </div>
-  </div>
+  </nav>
 </template>
