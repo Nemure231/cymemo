@@ -1,40 +1,51 @@
 <script>
 
 import Aside from './Aside.vue'
-import Nav from './Nav.vue'
+import Nav from '../Base/Nav.vue'
 
 export default {
     components: {Aside, Nav},
     data(){
         return {
+            judul: '',
+            isi: '',
             posts: [
                 {
                     id: '',
-                    judul:'' ,
+                    judul:'',
                     isi: ''
                 },
             ]
         }
     },
+    mounted(){
+        const data = JSON.parse(localStorage.getItem('posts'));
+        this.posts = data;
+    },
     methods: {
-        add(isi){
+        add(){
             this.posts.push({
-                id: 2,
-                judul: '',
-                isi: isi,
+                id: Date.now(),
+                judul: this.judul,
+                isi: this.isi,
             });
+            this.save();
+            // this.$route.path('/create');
+            // this.$route.redirect('/');
+
+        },
+        save(){
+            localStorage.setItem('posts', JSON.stringify(this.posts))
         }
     }
 }
 </script>
 
 <template>
-
+<Nav v-model="judul" @postMemo="add"/>
 <Aside :posts="posts"/>
-
-<Nav :posts="posts" />
 <router-view name="Post"></router-view>
-<router-view  @postMemo="add" name="Create"></router-view>
+<router-view v-model="isi" name="Create"></router-view>
 
 </template>
 

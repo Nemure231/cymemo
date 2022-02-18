@@ -1,12 +1,20 @@
 <script>
 
 export default {
-    emits: ['postMemo'],
-    methods:{
-        add(value){
-            this.$emit('postMemo', value);
-        }
-    }
+    props: ["modelValue"],
+    computed: {
+        value: {
+            // Pertama ambil value dari data di parents
+            // melalui props yang sudah didefinisikan
+            get() {
+                return this.modelValue;
+            },
+            // Lalu ambil valuenya untuk diupdate ke emit yang ada di parents
+            set(value) {
+                this.$emit('update:modelValue', value);
+            },
+        },
+    },
 }
 </script>
 
@@ -14,7 +22,7 @@ export default {
 
 <div class="flex justify-end w-auto">
     <div class="lg:block md:block hidden ml-64 w-full">
-    <textarea @keyup.enter="add($event.target.value)" class="text-2xl p-6 w-full h-[700px] resize-none focus:outline-none"
+    <textarea v-model="value" class="text-2xl p-6 w-full h-[700px] resize-none focus:outline-none"
     placeholder="Isi ..."></textarea>
     
     </div>
