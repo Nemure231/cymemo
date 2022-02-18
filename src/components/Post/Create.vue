@@ -4,12 +4,9 @@ export default {
     props: ["modelValue"],
     computed: {
         value: {
-            // Pertama ambil value dari data di parents
-            // melalui props yang sudah didefinisikan
             get() {
                 return this.modelValue;
             },
-            // Lalu ambil valuenya untuk diupdate ke emit yang ada di parents
             set(value) {
                 this.$emit('update:modelValue', value);
             },

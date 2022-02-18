@@ -4,7 +4,6 @@ export default {
         return {
             isi: '',
             dataTampil: 0
-
         }
     },
     methods:{
@@ -35,7 +34,7 @@ export default {
 
 <div class="flex justify-end w-auto">
     <div class="lg:block md:block hidden ml-64 w-full">
-        <textarea @dblclick="tampil" :readonly="dataTampil == 0 ? false : true" v-model="value" class="text-2xl p-6 w-full h-[700px] resize-none focus:outline-none"
+        <textarea @dblclick="tampil" :readonly="dataTampil == 0 ? true : false" v-model="value" class="text-2xl p-6 w-full h-[700px] resize-none focus:outline-none"
         ></textarea>
     </div>
 </div>

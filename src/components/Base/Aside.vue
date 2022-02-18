@@ -13,10 +13,10 @@ export default {
     <div class="fixed inset-y-0 overflow-y-auto h-full left-0 bg-cyan-900 lg:w-64 md:w-64 w-full">
     <div class="sticky space-x-2 text-2xl font-semibold text-center py-4 h-16 text-white top-0 backdrop-blur-sm bg-white/25">
         <router-link to="/">
-        Cymemo
+            Cymemo
         </router-link>
         <router-link class=" text-3xl font-bold text-white bg-cyan-800 px-4 py-2 rounded-full" to="/create">
-        +
+            +
         </router-link>
     </div>
 
