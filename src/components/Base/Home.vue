@@ -20,7 +20,9 @@ export default {
     },
     mounted(){
         const data = JSON.parse(localStorage.getItem('posts'));
-        this.posts = data;
+        if(data){
+            this.posts = data;
+        }
     },
     methods: {
         add(){
@@ -36,6 +38,7 @@ export default {
         save(){
             localStorage.setItem('posts', JSON.stringify(this.posts))
         },
+        
     }
 }
 </script>
