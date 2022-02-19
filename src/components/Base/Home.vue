@@ -31,6 +31,8 @@ export default {
                 judul: this.judul,
                 isi: this.isi,
             });
+            this.judul = ""
+            this.isi = ""
             this.save();
             this.$redirect('/')
 

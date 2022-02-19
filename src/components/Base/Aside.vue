@@ -48,7 +48,6 @@
                 v-for="(post, index) in posts.slice(1)" :key="index">
                 <router-link @click="goto" class="flex-1 py-3 px-6 cursor-pointer hover:bg-cyan-800 truncate"
                     :to="'/post/' + (index + 1) ">{{post.judul}}</router-link>
-                
                 <div class="pr-6 flex-none">
                     <button class="bg-red-500 py-1 px-2 rounded-3xl text-xs">{{index+1}}</button>
                 </div>
