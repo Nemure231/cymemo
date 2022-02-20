@@ -40,6 +40,27 @@ export default {
         save(){
             localStorage.setItem('posts', JSON.stringify(this.posts))
         },
+        removeAll() {
+            if(this.posts.length <= 1){
+                alert("You don't have any memo to delete!")
+            }else{
+                alert('Are you sure to remove all of this memo?')
+                localStorage.removeItem("posts");
+                this.posts = [];
+                this.posts.push({
+                    id: "",
+                    judul: "",
+                    isi: "",
+                });
+                this.save();
+                this.$redirect('/');
+            }
+        },
+        removeOne(value){
+            alert('Are you sure to remove this memo?')
+            const mk = this.posts.splice(value, 1)
+            this.save();
+        }
         
     }
 }
@@ -47,7 +68,7 @@ export default {
 
 <template>
 <Nav v-model="judul" @postMemo="add"/>
-<Aside :posts="posts"/>
+<Aside @childRemoveAll="removeAll" @childRemoveOne="removeOne" :posts="posts"/>
 
 <router-view name="Post"></router-view>
 
