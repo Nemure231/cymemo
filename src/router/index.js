@@ -10,7 +10,6 @@ const routes = [
         path: "/",
         components: {
             Main,
-            // Aside
         },
         children: [
             { 
@@ -19,12 +18,12 @@ const routes = [
                     Post
                 }
             },
-            { 
-                path: "create",
-                components: {
-                    Create
-                }
-            },
+            // { 
+            //     path: "create",
+            //     components: {
+            //         Create
+            //     }
+            // },
         ]
     }
 ]

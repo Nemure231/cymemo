@@ -2,9 +2,10 @@
 
 import Aside from './Aside.vue'
 import Nav from '../Base/Nav.vue'
+import Post from '../Post/Create.vue'
 
 export default {
-    components: {Aside, Nav},
+    components: {Aside, Nav, Post},
     data(){
         return {
             judul: '',
@@ -37,6 +38,9 @@ export default {
             this.$redirect('/')
 
         },
+        edit(){
+            alert('ini edit')
+        },
         save(){
             localStorage.setItem('posts', JSON.stringify(this.posts))
         },
@@ -60,6 +64,7 @@ export default {
             alert('Are you sure to remove this memo?')
             const mk = this.posts.splice(value, 1)
             this.save();
+            this.$redirect('/');
         }
         
     }
@@ -67,12 +72,14 @@ export default {
 </script>
 
 <template>
-<Nav v-model="judul" @postMemo="add"/>
+<Nav v-model="judul" @postMemo="add" @editMemo="edit"/>
 <Aside @childRemoveAll="removeAll" @childRemoveOne="removeOne" :posts="posts"/>
 
 <router-view name="Post"></router-view>
 
-<router-view v-model="isi" name="Create"></router-view>
+<Post v-model="isi" />
+
+<!-- <router-view v-model="isi" name="Create"></router-view> -->
 
 </template>
 
