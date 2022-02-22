@@ -40,8 +40,8 @@
                     </svg>
                 </div>
                 <router-link @click="goto" to="/" class="relative basis-1/3">
-                    <div class="absolute -top-3 lg:-right-4 md:-right-4 sm:right-12 right-4 font-semibold text-sm">
-                        1.0
+                    <div class="absolute -top-3 lg:-right-3 md:-right-3 sm:right-11 right-3 font-semibold text-sm">
+                        1.0.0
                     </div>
                     Cymemo
                 </router-link>

@@ -111,7 +111,6 @@ export default {
 
 <Create :class="this.$route.params.id ? 'hidden' : 'block'" v-model="isi" />
 
-
 </template>
 
 <style scoped>
