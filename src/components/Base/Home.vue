@@ -53,16 +53,15 @@ export default {
         edit(value){
             const editJudul = document.getElementById('edit-judul').value;
             const editIsi = document.getElementById('edit-post').value;
-
+            const today = new Date();
             this.posts.splice(value, 1, {
-                    id: Date.now(),
+                    id: this.formatDate(today, 'dd-mm-yyyy'),
                     judul: editJudul == '' ? 'Untitled' : editJudul,
                     isi: editIsi,
                 
             });
             this.save();
-            document.getElementById('hide-sidebar').classList.remove('w-0')
-            document.getElementById('hide-sidebar').classList.add('w-full')
+            
             // this.$redirect('/')
 
         },
@@ -93,6 +92,8 @@ export default {
                 this.posts.splice(value, 1)
                 this.save();
             }
+            document.getElementById('hide-sidebar').classList.remove('w-0')
+            document.getElementById('hide-sidebar').classList.add('w-full')
             this.$redirect('/');
 
         },
@@ -102,9 +103,9 @@ export default {
 </script>
 
 <template>
-<Nav  v-model="judul" @postMemo="add" @editMemo="edit"/>
+<Nav  v-model="judul" @postMemo="add" @childRemoveOne="removeOne" @editMemo="edit"/>
 
-<Aside @childRemoveAll="removeAll" @childRemoveOne="removeOne" :posts="posts"/>
+<Aside @childRemoveAll="removeAll"  :posts="posts"/>
 
 <router-view @editMemo="edit" name="Post"></router-view>
 

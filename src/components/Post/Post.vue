@@ -9,14 +9,17 @@ export default {
     emits: ['editMemo'],
     methods:{
         showEdit(){
-             const edit =  document.getElementById('edit-post');
+             const editPost =  document.getElementById('edit-post');
+             const editJudul =  document.getElementById('edit-judul');
             
-            if(edit.readOnly == true){
-                edit.readOnly = false
-                edit.focus();
+            if(editPost.readOnly == true && editJudul.readOnly == true){
+                editPost.readOnly = false
+                editJudul.readOnly = false
+                editPost.focus();
                 
             }else{
-                edit.readOnly = true
+                editPost.readOnly = true
+                editJudul.readOnly = true
             }
         },
         edit(value){
@@ -44,8 +47,6 @@ export default {
         <textarea readonly  id="edit-post" v-model="valueIsiGet" class="lg:text-xl md:text-xl text-lg p-6 w-full h-[700px] resize-none focus:outline-none"
         @input="edit(this.$route.params.id)"
         @change="edit(this.$route.params.id)"
-        @focus="edit(this.$route.params.id)"
-        @blur="edit(this.$route.params.id)"
         @dblclick="showEdit"
        
         ></textarea>
