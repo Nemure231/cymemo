@@ -16,6 +16,8 @@ export default {
         kembali(){
             document.getElementById('hide-sidebar').classList.remove('w-0')
             document.getElementById('hide-sidebar').classList.add('w-full')
+            
+            
             this.$redirect('/')
         },
         edit(event){

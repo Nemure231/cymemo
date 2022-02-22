@@ -3,13 +3,14 @@ export default {
     data(){
         return {
             isi: '',
+            dataTampil: 0
         }
     },
     methods:{
         tampil(){
+            this.dataTampil =! this.dataTampil
             const hideEditButton =  document.getElementById('edit-button');
-
-             if(hideEditButton.classList.contains('hidden')){
+            if(hideEditButton.classList.contains('hidden')){
                 hideEditButton.classList.remove('hidden');
             }else{
                 hideEditButton.classList.add('hidden');

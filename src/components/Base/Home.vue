@@ -48,25 +48,29 @@ export default {
             if(this.posts.length <= 1){
                 alert("You don't have any memo to delete!")
             }else{
-                alert('Are you sure to remove all of this memo?')
-                localStorage.removeItem("posts");
-                this.posts = [];
-                this.posts.push({
-                    id: "",
-                    judul: "",
-                    isi: "",
-                });
-                this.save();
+                let text = 'Are you sure to remove all of this memo?'
+                if (confirm(text) == true) {
+                    localStorage.removeItem("posts");
+                    this.posts = [];
+                    this.posts.push({
+                        id: "",
+                        judul: "",
+                        isi: "",
+                    });
+                    this.save();
+                }
                 this.$redirect('/');
             }
         },
         removeOne(value){
-            alert('Are you sure to remove this memo?')
-            const mk = this.posts.splice(value, 1)
-            this.save();
+            let text = 'Are you sure to remove this memo?'
+            if (confirm(text) == true) {
+                const mk = this.posts.splice(value, 1)
+                this.save();
+            }
             this.$redirect('/');
-        }
-        
+
+        },
     }
 }
 </script>
