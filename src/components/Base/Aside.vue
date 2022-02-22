@@ -47,9 +47,9 @@
                     x
                 </div>
             </div>
-            <div class="flex flex-nowrap first:hidden hover:bg-cyan-800 justify-between items-center text-white font-medium text-lg"
+            <div class="flex flex-nowrap  first:hidden hover:bg-cyan-800 justify-between items-center text-white font-medium text-lg"
                 v-for="(post, index) in posts.slice(1)" :key="index">
-                <router-link @click="goto" class="flex-1 py-3 px-6 cursor-pointer hover:bg-cyan-800 truncate"
+                <router-link @click="goto" class="border-b border-white/25 flex-1 py-3 px-6 cursor-pointer hover:bg-cyan-800 truncate"
                     :to="'/post/' + (index + 1) ">{{post.judul}}</router-link>
                 <div class="pr-6 flex-none">
                     <button @click="removeOne(index + 1)" class="font-semibold bg-red-500 py-2 px-3 rounded-3xl text-xs">X</button>

@@ -3,19 +3,26 @@ export default {
     data(){
         return {
             isi: '',
-            dataTampil: 0
+            // dataTampil: 0
         }
     },
+    emits: ['editMemo'],
     methods:{
-        tampil(){
-            this.dataTampil =! this.dataTampil
-            const hideEditButton =  document.getElementById('edit-button');
-            if(hideEditButton.classList.contains('hidden')){
-                hideEditButton.classList.remove('hidden');
+        showEdit(){
+             const edit =  document.getElementById('edit-post');
+            
+            if(edit.readOnly == true){
+                edit.readOnly = false
+                edit.focus();
+                
             }else{
-                hideEditButton.classList.add('hidden');
+                edit.readOnly = true
             }
-        }
+        },
+        edit(value){
+            this.$emit('editMemo', value);
+        },
+    
     },
    
     computed: {
@@ -34,7 +41,13 @@ export default {
 
 <div class="flex justify-end w-auto">
     <div class="lg:block md:block block lg:ml-64 md:ml-64 ml-0 w-full">
-        <textarea id="edit-post" @dblclick="tampil" :readonly="dataTampil == 0 ? true : false" v-model="valueIsiGet" class="lg:text-xl md:text-xl text-lg p-6 w-full h-[700px] resize-none focus:outline-none"
+        <textarea readonly  id="edit-post" v-model="valueIsiGet" class="lg:text-xl md:text-xl text-lg p-6 w-full h-[700px] resize-none focus:outline-none"
+        @input="edit(this.$route.params.id)"
+        @change="edit(this.$route.params.id)"
+        @focus="edit(this.$route.params.id)"
+        @blur="edit(this.$route.params.id)"
+        @dblclick="showEdit"
+       
         ></textarea>
     </div>
 </div>

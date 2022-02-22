@@ -63,7 +63,7 @@ export default {
             this.save();
             document.getElementById('hide-sidebar').classList.remove('w-0')
             document.getElementById('hide-sidebar').classList.add('w-full')
-            this.$redirect('/')
+            // this.$redirect('/')
 
         },
         save(){
@@ -106,7 +106,7 @@ export default {
 
 <Aside @childRemoveAll="removeAll" @childRemoveOne="removeOne" :posts="posts"/>
 
-<router-view name="Post"></router-view>
+<router-view @editMemo="edit" name="Post"></router-view>
 
 <Create :class="this.$route.params.id ? 'hidden' : 'block'" v-model="isi" />
 
