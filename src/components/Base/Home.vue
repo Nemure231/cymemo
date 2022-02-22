@@ -2,10 +2,10 @@
 
 import Aside from './Aside.vue'
 import Nav from '../Base/Nav.vue'
-import Post from '../Post/Create.vue'
+import Create from '../Post/Create.vue'
 
 export default {
-    components: {Aside, Nav, Post},
+    components: {Aside, Nav, Create},
     data(){
         return {
             judul: '',
@@ -16,7 +16,7 @@ export default {
                     judul:'',
                     isi: ''
                 },
-            ]
+            ],
         }
     },
     mounted(){
@@ -35,11 +35,22 @@ export default {
             this.judul = ""
             this.isi = ""
             this.save();
-            this.$redirect('/')
+            this.$redirect('/');
 
         },
-        edit(){
-            alert('ini edit')
+        edit(value){
+            const editJudul = document.getElementById('edit-judul').value;
+            const editIsi = document.getElementById('data-post').value;
+
+            this.posts.splice(value, 1, {
+                    id: Date.now(),
+                    judul: editJudul,
+                    isi: editIsi,
+                
+            });
+            this.save();
+            this.$redirect('/')
+
         },
         save(){
             localStorage.setItem('posts', JSON.stringify(this.posts))
@@ -65,23 +76,24 @@ export default {
         removeOne(value){
             let text = 'Are you sure to remove this memo?'
             if (confirm(text) == true) {
-                const mk = this.posts.splice(value, 1)
+                this.posts.splice(value, 1)
                 this.save();
             }
             this.$redirect('/');
 
         },
+        
     }
 }
 </script>
 
 <template>
-<Nav v-model="judul" @postMemo="add" @editMemo="edit"/>
+<Nav  v-model="judul" @postMemo="add" @editMemo="edit"/>
 <Aside @childRemoveAll="removeAll" @childRemoveOne="removeOne" :posts="posts"/>
 
 <router-view name="Post"></router-view>
 
-<Post v-model="isi" />
+<Create v-model="isi" />
 
 <!-- <router-view v-model="isi" name="Create"></router-view> -->
 

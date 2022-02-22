@@ -5,6 +5,12 @@ export default {
             judul: '',
         }
     },
+    // mounted(){
+    //     this.judul = JSON.parse(localStorage.getItem('posts'))[this.$route.params.id].judul
+    // },
+    // updated(){
+    //     this.judul = JSON.parse(localStorage.getItem('posts'))[this.$route.params.id].judul;
+    // },
     emits: ['postMemo', 'editMemo'],
     props: ['modelValue'],
     methods:{
@@ -16,12 +22,11 @@ export default {
         kembali(){
             document.getElementById('hide-sidebar').classList.remove('w-0')
             document.getElementById('hide-sidebar').classList.add('w-full')
-            
-            
+
             this.$redirect('/')
         },
-        edit(event){
-            this.$emit('editMemo');
+        edit(value){
+            this.$emit('editMemo', value);
         },
     },
     computed: {
@@ -38,6 +43,10 @@ export default {
                 const data = JSON.parse(localStorage.getItem('posts'));
                 return this.judul = data[this.$route.params.id].judul;
             },
+            set(){
+            
+
+            }
         },
     },
 }
@@ -45,7 +54,6 @@ export default {
 <template>
   <nav class="flex justify-end bg-cyan-900 sticky top-0 ">
     <div class="lg:block md:block block px-6 h-16 w-full lg:ml-64 md:ml-64 ml-0">
-        
         <div v-if="!this.$route.params.id" class="flex lg:justify-between md:justify-between justify-around py-2.5">
             <button @click="kembali" class="lg:hidden md:hidden block lg:px-6 lg:py-2 md:px-6 md:py-2.5 px-2.5 py-2 lg:text-lg md:text-lg text-sm font-semibold rounded-xl text-cyan-900 bg-white">
                 Kembali
@@ -60,9 +68,9 @@ export default {
              <button @click="kembali" class="lg:hidden md:hidden block lg:px-6 lg:py-2 md:px-6 md:py-2.5 px-2.5 py-2 lg:text-lg md:text-lg text-sm font-semibold rounded-xl text-cyan-900 bg-white">
                 Kembali
             </button>
-            <input v-model="valueGetJudul"  class="lg:w-1/3 md:w-1/2 w-1/2 lg:px-6 lg:py-2 md:px-6 md:py-2 px-2.5 py-2.5  lg:text-lg md:text-lg text-sm  rounded-xl focus:outline-none" type="text" placeholder="Judul ...">
+            <input id="edit-judul" v-model="valueGetJudul"  class="lg:w-1/3 md:w-1/2 w-1/2 lg:px-6 lg:py-2 md:px-6 md:py-2 px-2.5 py-2.5  lg:text-lg md:text-lg text-sm  rounded-xl focus:outline-none" type="text" placeholder="Judul ...">
             
-            <button @click="edit()" id="edit-button" class="hidden lg:px-6 lg:py-2 md:px-6 md:py-2 px-2.5 py-2.5 lg:text-lg md:text-lg text-sm  font-semibold rounded-xl text-cyan-900 bg-white">
+            <button @click="edit(this.$route.params.id)" id="edit-button" class="hidden lg:px-6 lg:py-2 md:px-6 md:py-2 px-2.5 py-2.5 lg:text-lg md:text-lg text-sm  font-semibold rounded-xl text-cyan-900 bg-white">
                 Edit
             </button>
         </div>
