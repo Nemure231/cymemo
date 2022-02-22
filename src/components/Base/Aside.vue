@@ -32,9 +32,9 @@
             <div
                 class="sticky flex items-center justify-center flex-row flex-wrap space-x-2 text-2xl font-semibold text-center py-3.5 text-white top-0 backdrop-blur-sm bg-white/25">
                 
-                <!-- <div @click="goto" class="basis-[15%] w-auto h-9 inline-flex items-center justify-center text-2xl font-bold text-white bg-cyan-800 rounded-full">
+                <div @click="goto" class="lg:hidden md:hidden cursor-pointer basis-[15%] w-auto h-9 inline-flex items-center justify-center text-2xl font-bold text-white bg-cyan-800 rounded-full">
                     +
-                </div> -->
+                </div>
                 <router-link @click="goto" to="/" class="basis-1/3">
                     Cymemo
                 </router-link>

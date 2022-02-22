@@ -26,10 +26,22 @@ export default {
         }
     },
     methods: {
+        formatDate(date, format){
+            const map = {
+                mm: date.getMonth() + 1,
+                dd: date.getDate(),
+                yy: date.getFullYear().toString().slice(-2),
+                yyyy: date.getFullYear()
+            }
+            return format.replace(/mm|dd|yy|yyy/gi, matched => map[matched])
+
+        },
         add(){
+            const today = new Date();
+            
             this.posts.push({
-                id: Date.now(),
-                judul: this.judul,
+                id: this.formatDate(today, 'dd/mm/yy'),
+                judul: this.judul == '' ? 'Untitled' : this.judul,
                 isi: this.isi,
             });
             this.judul = ""
@@ -40,15 +52,17 @@ export default {
         },
         edit(value){
             const editJudul = document.getElementById('edit-judul').value;
-            const editIsi = document.getElementById('data-post').value;
+            const editIsi = document.getElementById('edit-post').value;
 
             this.posts.splice(value, 1, {
                     id: Date.now(),
-                    judul: editJudul,
+                    judul: editJudul == '' ? 'Untitled' : editJudul,
                     isi: editIsi,
                 
             });
             this.save();
+            document.getElementById('hide-sidebar').classList.remove('w-0')
+            document.getElementById('hide-sidebar').classList.add('w-full')
             this.$redirect('/')
 
         },
@@ -89,13 +103,13 @@ export default {
 
 <template>
 <Nav  v-model="judul" @postMemo="add" @editMemo="edit"/>
+
 <Aside @childRemoveAll="removeAll" @childRemoveOne="removeOne" :posts="posts"/>
 
 <router-view name="Post"></router-view>
 
-<Create v-model="isi" />
+<Create :class="this.$route.params.id ? 'hidden' : 'block'" v-model="isi" />
 
-<!-- <router-view v-model="isi" name="Create"></router-view> -->
 
 </template>
 

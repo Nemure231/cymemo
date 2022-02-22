@@ -64,11 +64,11 @@ export default {
                 Simpan
             </button>
         </div>
-        <div v-else class="flex lg:justify-between md:justify-between justify-around py-2.5">
+        <div v-else class="flex lg:justify-between md:justify-between justify-around lg:space-x-0 md:space-x-0 space-x-0 py-2.5">
              <button @click="kembali" class="lg:hidden md:hidden block lg:px-6 lg:py-2 md:px-6 md:py-2.5 px-2.5 py-2 lg:text-lg md:text-lg text-sm font-semibold rounded-xl text-cyan-900 bg-white">
                 Kembali
             </button>
-            <input id="edit-judul" v-model="valueGetJudul"  class="lg:w-1/3 md:w-1/2 w-1/2 lg:px-6 lg:py-2 md:px-6 md:py-2 px-2.5 py-2.5  lg:text-lg md:text-lg text-sm  rounded-xl focus:outline-none" type="text" placeholder="Judul ...">
+            <input id="edit-judul" v-model="valueGetJudul"  class="lg:w-1/3 md:w-1/2 w-3/5 lg:px-6 lg:py-2 md:px-6 md:py-2 px-2.5 py-2.5  lg:text-lg md:text-lg text-sm  rounded-xl focus:outline-none" type="text" placeholder="Judul ...">
             
             <button @click="edit(this.$route.params.id)" id="edit-button" class="hidden lg:px-6 lg:py-2 md:px-6 md:py-2 px-2.5 py-2.5 lg:text-lg md:text-lg text-sm  font-semibold rounded-xl text-cyan-900 bg-white">
                 Edit

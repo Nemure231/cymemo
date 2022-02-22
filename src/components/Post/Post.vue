@@ -34,7 +34,7 @@ export default {
 
 <div class="flex justify-end w-auto">
     <div class="lg:block md:block block lg:ml-64 md:ml-64 ml-0 w-full">
-        <textarea id="data-post" @dblclick="tampil" :readonly="dataTampil == 0 ? true : false" v-model="valueIsiGet" class="text-2xl p-6 w-full h-[700px] resize-none focus:outline-none"
+        <textarea id="edit-post" @dblclick="tampil" :readonly="dataTampil == 0 ? true : false" v-model="valueIsiGet" class="lg:text-xl md:text-xl text-lg p-6 w-full h-[700px] resize-none focus:outline-none"
         ></textarea>
     </div>
 </div>
