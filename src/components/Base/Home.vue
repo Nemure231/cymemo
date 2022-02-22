@@ -38,9 +38,9 @@ export default {
         },
         add(){
             const today = new Date();
-            
+
             this.posts.push({
-                id: this.formatDate(today, 'dd/mm/yy'),
+                id: this.formatDate(today, 'dd-mm-yyyy'),
                 judul: this.judul == '' ? 'Untitled' : this.judul,
                 isi: this.isi,
             });
