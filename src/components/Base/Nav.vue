@@ -117,9 +117,9 @@ export default {
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                 </svg>
-                <div v-show="dropdown" class="absolute -bottom-20 right-0">
+                <div v-show="dropdown" class="absolute top-10 right-0">
                     <div class="font-semibold bg-cyan-900 rounded-xl border border-black/25 w-40 h-auto">
-                        <div @click="showEdit" class="flex flex-row flex-nowrap justify-between items-center cursor-pointer border-b rounded-t-xl border-white/25 px-2 py-1 ">
+                        <div @click="showEdit" class="flex flex-row flex-nowrap justify-between items-center cursor-pointer border-b rounded-t-xl border-white/25 px-3 py-2 ">
                             <div>Edit</div>
                             <div class="text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -127,7 +127,8 @@ export default {
                                 </svg>
                             </div>
                         </div>
-                        <div @click="removeOne(this.$route.params.id)" class="flex flex-row flex-nowrap justify-between items-center cursor-pointer px-2 py-1 rounded-b-xl ">
+                        
+                        <div @click="removeOne(this.$route.params.id)" class="flex flex-row flex-nowrap justify-between items-center cursor-pointer px-3 py-2 rounded-b-xl ">
                             <div>
                                 Delete
                             </div>
