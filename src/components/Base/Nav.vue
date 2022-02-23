@@ -77,7 +77,8 @@ export default {
 </script>
 <template>
   <nav class="flex justify-end bg-cyan-900 sticky top-0 ">
-    <div class="lg:block md:block block px-6 h-16 w-full lg:ml-64 md:ml-64 ml-0">
+    <div
+        class="lg:block w-full md:block block px-6 h-16 lg:ml-64 md:ml-64 ml-0">
         <div v-if="!this.$route.params.id" class="flex items-center lg:justify-between md:justify-between justify-around py-2.5">
             <div @click="add(); kembali();" class=" h-11 w-11 inline-flex justify-start items-center rounded-full text-white cursor-pointer lg:hidden md:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">

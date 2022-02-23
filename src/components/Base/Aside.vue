@@ -28,23 +28,24 @@
 
 <template>
     <aside class="relative w-full h-auto z-10">
-        <div id="hide-sidebar" class="w-full fixed inset-y-0 overflow-y-auto h-full left-0 bg-cyan-900 lg:w-64 md:w-64">
+        <div :class="!this.$route.params.id ? 'w-full' : 'w-0'"  
+            id="hide-sidebar"  
+            class="fixed inset-y-0 overflow-y-auto h-full left-0 bg-cyan-900 lg:w-64 md:w-64">
             <div
                 class="sticky flex items-center justify-center flex-row flex-wrap space-x-6 text-2xl font-semibold text-center py-3.5 text-white top-0 backdrop-blur-sm bg-white/25">
                 
                 <div @click="goto" :class="posts.length == 1 ? 'order-1' : 'order-0'" 
                     class="lg:hidden md:hidden cursor-pointer w-11 h-11  inline-flex items-center justify-center flex-none text-2xl font-bold text-white bg-cyan-800 rounded-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-plus" viewBox="0 0 16 16">
-                        <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z"/>
-                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="fill-white" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
                     </svg>
                 </div>
-                <router-link @click="goto" to="/" class="relative basis-1/3">
+                <div class="relative basis-1/3">
                     <div class="absolute -top-3 lg:-right-3 md:-right-3 sm:right-11 right-3 font-semibold text-sm">
                         1.0.0
                     </div>
                     Cymemo
-                </router-link>
+                </div>
                 <div @click="removeAll" :class="posts.length == 1 ? 'hidden' : 'block'"
                     class="cursor-pointer  w-11 h-11 inline-flex items-center justify-center text-xl font-bold text-white bg-red-500 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  viewBox="0 0 16 16">
