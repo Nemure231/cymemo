@@ -33,14 +33,14 @@ export default {
                 yy: date.getFullYear().toString().slice(-2),
                 yyyy: date.getFullYear()
             }
-            return format.replace(/mm|dd|yy|yyy/gi, matched => map[matched])
+            return format.replace(/mm|dd|yy|yyyy/gi, matched => map[matched])
 
         },
         add(){
             const today = new Date();
 
             this.posts.push({
-                id: this.formatDate(today, 'dd-mm-yyyy'),
+                id: this.formatDate(today, 'dd-mm-yy'),
                 judul: this.judul == '' ? 'Untitled' : this.judul,
                 isi: this.isi,
             });
@@ -55,7 +55,7 @@ export default {
             const editIsi = document.getElementById('edit-post').value;
             const today = new Date();
             this.posts.splice(value, 1, {
-                    id: this.formatDate(today, 'dd-mm-yyyy'),
+                    id: this.formatDate(today, 'dd-mm-yy'),
                     judul: editJudul == '' ? 'Untitled' : editJudul,
                     isi: editIsi,
                 
