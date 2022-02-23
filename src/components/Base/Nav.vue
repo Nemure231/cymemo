@@ -46,7 +46,15 @@ export default {
             this.$emit('editMemo', value);
         },
         openDropdown(){
-            this.dropdown =! this.dropdown
+            const condition = this.dropdown =! this.dropdown
+
+            const hideDate = document.getElementById('hide-date');
+
+            if(condition == true){
+                hideDate.classList.add('-z-10');
+            }else{
+                 hideDate.classList.remove('-z-10');
+            }
 
         },
         removeOne(value){
