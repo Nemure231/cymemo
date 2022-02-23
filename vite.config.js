@@ -22,7 +22,7 @@ export default defineConfig({
         name: 'Cymemo',
         short_name: 'Cymemo',
         description: 'A simple memo app',
-        theme_color: 'invalid',
+        theme_color: '#ffffff',
         icons: [
           {
             src: 'pwa-192x192.png',
