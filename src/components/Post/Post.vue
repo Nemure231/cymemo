@@ -52,7 +52,7 @@ export default {
 <div class="flex flex-col justify-end w-auto overflow-hidden">
     <div class="lg:ml-64 md:ml-64 ml-0 w-full">
         <!-- <div class="relative bg-white"> -->
-            <div class="rounded-3xl absolute bg-cyan-900 inset-x-0 w-max top-[4.5rem] lg:left-[57%] md:left-[60%] left-[44%] p-2 text-white drop-shadow-xl font-medium lg:text-sm md:text-sm text-xs">
+            <div class="rounded-3xl absolute bg-cyan-900 inset-x-0 w-max top-[4.5rem] lg:left-[57%] md:left-[60%] sm:left-[44%] left-[43%] p-2 text-white drop-shadow-xl font-medium lg:text-sm md:text-sm text-xs">
                 {{valueDateGet}}
             </div>
 
