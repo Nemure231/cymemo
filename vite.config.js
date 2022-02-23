@@ -20,9 +20,9 @@ export default defineConfig({
       includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png'],  
       manifest: {
         name: 'Cymemo',
-        short_name: 'Cy-m',
+        short_name: 'Cymemo',
         description: 'A simple memo app',
-        theme_color: '#ffffff',
+        theme_color: 'invalid',
         icons: [
           {
             src: 'pwa-192x192.png',
