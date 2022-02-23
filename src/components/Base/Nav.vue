@@ -79,13 +79,13 @@ export default {
   <nav class="flex justify-end bg-cyan-900 sticky top-0 ">
     <div class="lg:block md:block block px-6 h-16 w-full lg:ml-64 md:ml-64 ml-0">
         <div v-if="!this.$route.params.id" class="flex items-center lg:justify-between md:justify-between justify-around py-2.5">
-            <div @click="add(); kembali();" class="hover:bg-cyan-800 h-11 w-11 inline-flex justify-center items-center rounded-full text-white cursor-pointer lg:hidden md:hidden">
+            <div @click="add(); kembali();" class=" h-11 w-11 inline-flex justify-start items-center rounded-full text-white cursor-pointer lg:hidden md:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                 </svg>
             </div>
             <input v-model="valueIsiAdd" class="lg:w-1/3 md:w-1/2 w-5/6 lg:px-6 lg:py-2 md:px-6 md:py-2 px-2.5 py-2.5  lg:text-lg md:text-lg text-sm  rounded-xl focus:outline-none" type="text" placeholder="Title ...">
-            <div @click="add()" class="hover:bg-cyan-800 h-11 w-11 inline-flex justify-center items-center rounded-full text-white cursor-pointer">
+            <div @click="add()" class=" h-11 w-11 inline-flex justify-end items-center rounded-full text-white cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-save" viewBox="0 0 16 16">
                     <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
                 </svg>
@@ -93,7 +93,7 @@ export default {
 
         </div>
         <div v-else class="flex items-center lg:justify-between md:justify-between justify-between lg:space-x-0 md:space-x-0 space-x-0 py-2.5">
-            <div class="text-white cursor-pointer lg:hidden md:hidden block" @click="kembali">
+            <div class="text-white cursor-pointer lg:hidden md:hidden inline-flex justify-end items-center" @click="kembali">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                 </svg>
@@ -104,13 +104,13 @@ export default {
             
             >
             
-            <div class="text-white cursor-pointer relative" @click="openDropdown">
+            <div class="text-white cursor-pointer relative inline-flex justify-end items-center" @click="openDropdown">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                 </svg>
                 <div v-show="dropdown" class="absolute -bottom-20 right-0">
                     <div class="font-semibold bg-cyan-900 rounded-xl border border-black/25 w-40 h-auto">
-                        <div @click="showEdit" class="flex flex-row flex-nowrap justify-between items-center cursor-pointer border-b rounded-t-xl border-white/25 px-2 py-1 hover:bg-cyan-800">
+                        <div @click="showEdit" class="flex flex-row flex-nowrap justify-between items-center cursor-pointer border-b rounded-t-xl border-white/25 px-2 py-1 ">
                             <div>Edit</div>
                             <div class="text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -118,7 +118,7 @@ export default {
                                 </svg>
                             </div>
                         </div>
-                        <div @click="removeOne(this.$route.params.id)" class="flex flex-row flex-nowrap justify-between items-center cursor-pointer px-2 py-1 rounded-b-xl hover:bg-cyan-800">
+                        <div @click="removeOne(this.$route.params.id)" class="flex flex-row flex-nowrap justify-between items-center cursor-pointer px-2 py-1 rounded-b-xl ">
                             <div>
                                 Delete
                             </div>

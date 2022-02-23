@@ -57,8 +57,6 @@
                 <router-link @click="goto" class="border-b border-white/25 flex-1 py-3 px-6 cursor-pointer hover:bg-cyan-800 truncate text-white font-medium text-lg"
                     :to="'/post/' + (index + 1) ">{{post.judul}}</router-link>
                 <div class="pr-6 py-4 text-gray-300 flex-none text-sm border-b border-white/25">
-                    <!-- <button  class="font-semibold bg-red-500 py-2 px-3 rounded-3xl text-xs">X</button>
-                    -->
                     {{post.id}}
                 </div>
             </div>
