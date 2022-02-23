@@ -40,12 +40,12 @@
                         <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
                     </svg>
                 </div>
-                <div class="relative basis-1/3">
+                <router-link @click="goto" to="/" class="relative basis-1/3">
                     <div class="absolute -top-3 lg:-right-3 md:-right-3 sm:right-11 right-3 font-semibold text-sm">
                         1.0.0
                     </div>
                     Cymemo
-                </div>
+                </router-link>
                 <div @click="removeAll" :class="posts.length == 1 ? 'hidden' : 'block'"
                     class="cursor-pointer  w-11 h-11 inline-flex items-center justify-center text-xl font-bold text-white bg-red-500 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  viewBox="0 0 16 16">
