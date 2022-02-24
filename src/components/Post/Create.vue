@@ -22,7 +22,7 @@ export default {
     <textarea 
         v-model="value"
         class=" lg:text-xl md:text-xl text-lg px-6 lg:pt-6 md:pt-6 pt-12 w-full h-[550px] resize-none focus:outline-none"
-    placeholder="Description ..."></textarea>    
+    placeholder="Descriptions ..."></textarea>    
     </div>
 </div>
 
