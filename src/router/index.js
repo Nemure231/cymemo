@@ -9,7 +9,7 @@ const routes = [
         path: "/",
         components: {
             Main,
-            ReloadPWA
+            // ReloadPWA
         },
         children: [
             { 
