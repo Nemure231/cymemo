@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { VitePWA } from 'vite-plugin-pwa'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   // server: {
   //   host: true,
@@ -11,10 +10,6 @@ export default defineConfig({
   plugins: [
     vue(),
     VitePWA({
-      mode: "development",
-      base: "/",
-      srcDir: "src",
-      // filename: "sw.ts",
       sourcemap: true,
       registerType: 'autoUpdate',
       strategies: 'injectManifest',
@@ -43,9 +38,7 @@ export default defineConfig({
           }
         ]
       },
-      workbox: {
-        cleanupOutdatedCaches: false  
-      },
+    
     })
   ]
 })
