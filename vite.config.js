@@ -15,6 +15,7 @@ export default defineConfig({
       base: "/",
       srcDir: "src",
       filename: "sw.ts",
+      sourcemap: true,
       registerType: 'autoUpdate',
       strategies: 'injectManifest',
       includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png'],  
