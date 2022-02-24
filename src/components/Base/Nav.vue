@@ -6,12 +6,6 @@ export default {
             dropdown: false
         }
     },
-    // mounted(){
-    //     this.judul = JSON.parse(localStorage.getItem('posts'))[this.$route.params.id].judul
-    // },
-    // updated(){
-    //     this.judul = JSON.parse(localStorage.getItem('posts'))[this.$route.params.id].judul;
-    // },
     emits: ['postMemo', 'editMemo', 'childRemoveOne'],
     props: ['modelValue'],
     methods:{
@@ -19,7 +13,6 @@ export default {
             this.$emit('postMemo');
             document.getElementById('hide-sidebar').classList.remove('w-0')
             document.getElementById('hide-sidebar').classList.add('w-full')
-        
         },
         kembali(){
             document.getElementById('hide-sidebar').classList.remove('w-0')
