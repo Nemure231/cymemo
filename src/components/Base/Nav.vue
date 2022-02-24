@@ -46,7 +46,7 @@ export default {
             if(condition == true){
                 hideDate.classList.add('-z-10');
             }else{
-                 hideDate.classList.remove('-z-10');
+                hideDate.classList.remove('-z-10');
             }
 
         },
