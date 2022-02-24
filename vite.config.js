@@ -14,7 +14,7 @@ export default defineConfig({
       mode: "development",
       base: "/",
       srcDir: "src",
-      filename: "sw.ts",
+      // filename: "sw.ts",
       sourcemap: true,
       registerType: 'autoUpdate',
       strategies: 'injectManifest',
